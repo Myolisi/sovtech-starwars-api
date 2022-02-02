@@ -7,10 +7,11 @@ export const typeDefs = gql`
     mass: Int!
     gender: String!
     homeworld: String!
+    next: String!
   }
 
   type Query {
     people: [People]
-    getPeopleByName: [People]
+    getPeopleByName(name: String!): [People]
   }
 `;
