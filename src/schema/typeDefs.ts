@@ -11,7 +11,7 @@ export const typeDefs = gql`
   }
 
   type Query {
-    people: [People]
+    people(next: String!): [People]
     getPeopleByName(name: String!): [People]
   }
 `;
