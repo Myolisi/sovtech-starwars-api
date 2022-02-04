@@ -10,8 +10,16 @@ export const typeDefs = gql`
     next: Int!
   }
 
+  type Homeworld {
+    id: Int!
+    name: String!
+    climate: String!
+    terrain: String!
+  }
+
   type Query {
     people(next: Int!): [People]
     getPeopleByName(name: String): [People]
+    getHomeworld(id: Int!): Homeworld
   }
 `;

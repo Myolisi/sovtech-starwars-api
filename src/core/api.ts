@@ -12,10 +12,14 @@ export class Api extends RESTDataSource {
       return await this.get('people/');
     }
     // We want to make sure that we have a next page to fetch/or previous page
-    return this.get(`people/?page=${next}`);
+    return await this.get(`people/?page=${next}`);
   }
 
   async getPeopleByName(name) {
-    return this.get(`people/?search=${name}`);
+    return await this.get(`people/?search=${name}`);
+  }
+
+  async getHomeworld(id) {
+    return await this.get(`planets/${id}`);
   }
 }

@@ -28,5 +28,16 @@ export const resolvers = {
         next: 1,
       }));
     },
+
+    getHomeworld: async (source, args, { dataSources }) => {
+      const homeworld = await dataSources.api.getHomeworld(args.id);
+      const { name, climate, terrain } = homeworld;
+      // Get these fields from the results
+      return {
+        name,
+        climate,
+        terrain,
+      };
+    },
   },
 };
