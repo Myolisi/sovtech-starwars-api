@@ -3,15 +3,15 @@ import { gql } from 'apollo-server';
 export const typeDefs = gql`
   type People {
     name: String!
-    height: Int!
-    mass: Int!
+    height: String!
+    mass: String!
     gender: String!
     homeworld: String!
-    next: String!
+    next: Int!
   }
 
   type Query {
-    people(next: String!): [People]
-    getPeopleByName(name: String!): [People]
+    people(next: Int!): [People]
+    getPeopleByName(name: String): [People]
   }
 `;

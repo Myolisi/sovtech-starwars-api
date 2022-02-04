@@ -11,12 +11,13 @@ export const resolvers = {
         mass: person.mass,
         gender: person.gender,
         homeworld: person.homeworld,
-        next: next,
+        next: next ? next.substring(next.lastIndexOf('=') + 1) : 0,
       }));
       return data;
     },
     getPeopleByName: async (source, args, { dataSources }) => {
       const people = await dataSources.api.getPeopleByName(args.name);
+
       // Get these fields from the results
       return people.results.map((person) => ({
         name: person.name,
@@ -24,7 +25,7 @@ export const resolvers = {
         mass: person.mass,
         gender: person.gender,
         homeworld: person.homeworld,
-        next: '',
+        next: 1,
       }));
     },
   },
